@@ -23,3 +23,4 @@ Thumbs.db
 .qmlcache/
 
 build/Desktop_Qt_6_10_2_MinGW_64_bit-Release/.ninja_log
+build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/Testing/Temporary/LastTest.log
