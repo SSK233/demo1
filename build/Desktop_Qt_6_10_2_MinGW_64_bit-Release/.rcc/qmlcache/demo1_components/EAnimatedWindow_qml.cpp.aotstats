@@ -1,0 +1,1455 @@
+{
+    "formatRevision": 1,
+    "modules": [
+        {
+            "moduleFiles": [
+                {
+                    "entries": [
+                        {
+                            "codegenResult": 0,
+                            "column": 12,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 10,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 13,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 11,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 12,
+                            "durationMicroseconds": 0,
+                            "functionName": "focus",
+                            "line": 12,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "_updateThemeOpenCount",
+                            "line": 18,
+                            "message": "Cannot access value for name theme"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "textColor",
+                            "line": 37,
+                            "message": "Cannot access value for name theme"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 37,
+                            "durationMicroseconds": 0,
+                            "functionName": "fullscreenColor",
+                            "line": 38,
+                            "message": "Cannot access value for name theme"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 33,
+                            "durationMicroseconds": 0,
+                            "functionName": "buttonColor",
+                            "line": 45,
+                            "message": "Cannot access value for name theme"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "startState",
+                            "line": 49,
+                            "message": "Cannot load property transparent from QtObject."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "open",
+                            "line": 62,
+                            "message": "Functions without type annotations won't be compiled"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "updateStartStatePosition",
+                            "line": 152,
+                            "message": "Cannot load property sourceItem from (component in D:/EvolveUI/tools/demo1/components/EAnimatedWindow.qml)::startState with type QVariant."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 21,
+                            "durationMicroseconds": 0,
+                            "functionName": "onWidthChanged",
+                            "line": 179,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 22,
+                            "durationMicroseconds": 0,
+                            "functionName": "onHeightChanged",
+                            "line": 185,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 21,
+                            "durationMicroseconds": 0,
+                            "functionName": "onStateChanged",
+                            "line": 363,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 17,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 193,
+                            "message": "Cannot access value for name theme"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 18,
+                            "durationMicroseconds": 0,
+                            "functionName": "enabled",
+                            "line": 194,
+                            "message": "Cannot access value for name theme"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 9,
+                            "durationMicroseconds": 0,
+                            "functionName": "onIsDarkChanged",
+                            "line": 196,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 75,
+                            "durationMicroseconds": 0,
+                            "functionName": "x",
+                            "line": 207,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 109,
+                            "durationMicroseconds": 0,
+                            "functionName": "y",
+                            "line": 207,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 75,
+                            "durationMicroseconds": 0,
+                            "functionName": "x",
+                            "line": 206,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 109,
+                            "durationMicroseconds": 0,
+                            "functionName": "y",
+                            "line": 206,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 22,
+                            "durationMicroseconds": 0,
+                            "functionName": "enabled",
+                            "line": 215,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "acceptedButtons",
+                            "line": 217,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 220,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "onPressed",
+                            "line": 228,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "onPressed",
+                            "line": 228,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 25,
+                            "durationMicroseconds": 0,
+                            "functionName": "onReleased",
+                            "line": 229,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 25,
+                            "durationMicroseconds": 0,
+                            "functionName": "onReleased",
+                            "line": 229,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "onDoubleClicked",
+                            "line": 230,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "onDoubleClicked",
+                            "line": 230,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 22,
+                            "durationMicroseconds": 0,
+                            "functionName": "onWheel",
+                            "line": 231,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 22,
+                            "durationMicroseconds": 0,
+                            "functionName": "onWheel",
+                            "line": 231,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 27,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 213,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 27,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 236,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 244,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 33,
+                            "durationMicroseconds": 0,
+                            "functionName": "iconFontFamily",
+                            "line": 250,
+                            "message": "Cannot access value for name iconFont"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 26,
+                            "durationMicroseconds": 0,
+                            "functionName": "enabled",
+                            "line": 256,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 257,
+                            "message": "method updateStartStatePosition cannot be resolved."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "top",
+                            "line": 253,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "right",
+                            "line": 254,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 279,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 72,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 279,
+                            "message": "Could not find property \"width\". You may want use ID-based grouped properties here."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 104,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 279,
+                            "message": "Could not find property \"height\". You may want use ID-based grouped properties here."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 280,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 71,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 280,
+                            "message": "Could not find property \"color\". You may want use ID-based grouped properties here."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 281,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 282,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 283,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 271,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 56,
+                            "durationMicroseconds": 0,
+                            "functionName": "x",
+                            "line": 271,
+                            "message": "Could not find property \"x\". You may want use ID-based grouped properties here."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 73,
+                            "durationMicroseconds": 0,
+                            "functionName": "y",
+                            "line": 271,
+                            "message": "Could not find property \"y\". You may want use ID-based grouped properties here."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 94,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 271,
+                            "message": "Could not find property \"width\". You may want use ID-based grouped properties here."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 120,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 271,
+                            "message": "Could not find property \"height\". You may want use ID-based grouped properties here."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 272,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 61,
+                            "durationMicroseconds": 0,
+                            "functionName": "radius",
+                            "line": 272,
+                            "message": "Could not find property \"radius\". You may want use ID-based grouped properties here."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 87,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 272,
+                            "message": "Could not find property \"color\". You may want use ID-based grouped properties here."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 273,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 57,
+                            "durationMicroseconds": 0,
+                            "functionName": "angle",
+                            "line": 273,
+                            "message": "Could not find property \"angle\". You may want use ID-based grouped properties here."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 274,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 57,
+                            "durationMicroseconds": 0,
+                            "functionName": "angle",
+                            "line": 274,
+                            "message": "Could not find property \"angle\". You may want use ID-based grouped properties here."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 275,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "onRunningChanged",
+                            "line": 321,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 337,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 86,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 337,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 137,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 337,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 189,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 337,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 338,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 86,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 338,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 137,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 338,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 189,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 338,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 339,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 90,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 339,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 138,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 339,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 190,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 339,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 340,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 89,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 340,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 188,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 340,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 240,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 340,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 341,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 90,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 341,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 192,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 341,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 244,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 341,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 342,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 85,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 342,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 128,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 342,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 180,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 342,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 343,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 85,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 343,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 128,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 343,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 180,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 343,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 346,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 99,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 346,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 151,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 346,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 347,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 99,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 347,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 151,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 347,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 348,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 90,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 348,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 119,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 348,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 171,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 348,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 349,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 89,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 349,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 117,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 349,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 169,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 349,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 350,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 90,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 350,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 119,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 350,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 171,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 350,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 351,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 85,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 351,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 109,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 351,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 161,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 351,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 352,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 85,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 352,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 109,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 352,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 161,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 352,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 356,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 78,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 356,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 106,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 356,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 43,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 357,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 95,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 357,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "onRunningChanged",
+                            "line": 291,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 296,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 86,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 296,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 143,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 296,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 195,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 296,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 297,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 86,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 297,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 143,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 297,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 195,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 297,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 298,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 90,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 298,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 119,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 298,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 171,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 298,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 299,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 89,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 299,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 182,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 299,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 234,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 299,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 300,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 90,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 300,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 186,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 300,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 238,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 300,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 301,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 85,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 301,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 134,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 301,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 186,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 301,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 302,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 85,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 302,
+                            "message": "Cannot access value for name startState"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 134,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 302,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 186,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 302,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 50,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 303,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 86,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 303,
+                            "message": "Cannot access value for name fullscreenColor"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 113,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 303,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 306,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 99,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 306,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 151,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 306,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 307,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 99,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 307,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 151,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 307,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 308,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 103,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 308,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 155,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 308,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 309,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 89,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 309,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 123,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 309,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 175,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 309,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 310,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 90,
+                            "durationMicroseconds": 0,
+                            "functionName": "to",
+                            "line": 310,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 125,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 310,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 177,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 310,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 311,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 98,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 311,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 150,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 311,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 312,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 98,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 312,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 150,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 312,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 43,
+                            "durationMicroseconds": 0,
+                            "functionName": "target",
+                            "line": 315,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 95,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 315,
+                            "message": "Cannot access value for name animDuration"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 129,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 315,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "onCompleted",
+                            "line": 366,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "onDestruction",
+                            "line": 369,
+                            "message": "Cannot access value for name theme"
+                        }
+                    ],
+                    "filePath": "D:/EvolveUI/tools/demo1/components/EAnimatedWindow.qml"
+                }
+            ],
+            "moduleId": "EvolveUI(demo1)"
+        }
+    ]
+}

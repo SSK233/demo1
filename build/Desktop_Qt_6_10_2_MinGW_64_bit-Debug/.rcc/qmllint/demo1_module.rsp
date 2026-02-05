@@ -1,0 +1,16 @@
+-I
+D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug
+-I
+D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/EvolveUI
+-I
+D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug
+-I
+D:/qt/qt/6.10.2/mingw_64/qml
+--resource
+D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/.qt/rcc/qmake_EvolveUI.qrc
+--resource
+D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/.qt/rcc/demo1_raw_qml_0.qrc
+--resource
+D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/.qt/rcc/demo1_raw_qml_0_extra_qmldirs.qrc
+--module
+EvolveUI

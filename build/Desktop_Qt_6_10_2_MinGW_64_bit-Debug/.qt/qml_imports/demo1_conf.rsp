@@ -1,0 +1,15 @@
+-rootPath
+D:/EvolveUI/tools/demo1
+-cmake-output
+-output-file
+D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/.qt/qml_imports/demo1_conf.cmake
+-importPath
+D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug
+-importPath
+D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/EvolveUI
+-importPath
+D:/qt/qt/6.10.2/mingw_64/qml
+-qrcFiles
+D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/.qt/rcc/qmake_EvolveUI.qrc
+D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/.qt/rcc/demo1_raw_qml_0.qrc
+D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/.qt/rcc/demo1_raw_qml_0_extra_qmldirs.qrc

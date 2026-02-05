@@ -1,0 +1,51 @@
+module EvolveUI
+typeinfo demo1.qmltypes
+prefer :/qt/qml/EvolveUI/
+Main 1.0 Main.qml
+HomePage 1.0 pages/HomePage.qml
+FavoritesPage 1.0 pages/FavoritesPage.qml
+SettingsPage 1.0 pages/SettingsPage.qml
+Aboutme 1.0 components/Aboutme.qml
+EAccordion 1.0 components/EAccordion.qml
+EAlertDialog 1.0 components/EAlertDialog.qml
+EAnimatedWindow 1.0 components/EAnimatedWindow.qml
+EAreaChart 1.0 components/EAreaChart.qml
+EAvatar 1.0 components/EAvatar.qml
+EBarChart 1.0 components/EBarChart.qml
+EBatteryCard 1.0 components/EBatteryCard.qml
+EBlurCard 1.0 components/EBlurCard.qml
+EButton 1.0 components/EButton.qml
+ECalendar 1.0 components/ECalendar.qml
+ECard 1.0 components/ECard.qml
+ECardWithTextArea 1.0 components/ECardWithTextArea.qml
+ECarousel 1.0 components/ECarousel.qml
+ECheckBox 1.0 components/ECheckBox.qml
+EClock 1.0 components/EClock.qml
+EClockCard 1.0 components/EClockCard.qml
+EColorPicker 1.0 components/EColorPicker.qml
+EDataTable 1.0 components/EDataTable.qml
+EDrawer 1.0 components/EDrawer.qml
+EDropdown 1.0 components/EDropdown.qml
+EFitnessProgress 1.0 components/EFitnessProgress.qml
+EHitokotoCard 1.0 components/EHitokotoCard.qml
+EHoverCard 1.0 components/EHoverCard.qml
+EInput 1.0 components/EInput.qml
+EList 1.0 components/EList.qml
+ELoader 1.0 components/ELoader.qml
+EMenuButton 1.0 components/EMenuButton.qml
+EMusicPlayer 1.0 components/EMusicPlayer.qml
+ENavBar 1.0 components/ENavBar.qml
+ENextHolidayCountdown 1.0 components/ENextHolidayCountdown.qml
+EPieChart 1.0 components/EPieChart.qml
+EPlaylist 1.0 components/EPlaylist.qml
+ERadioButton 1.0 components/ERadioButton.qml
+ESimpleDatePicker 1.0 components/ESimpleDatePicker.qml
+ESlider 1.0 components/ESlider.qml
+ESwitchButton 1.0 components/ESwitchButton.qml
+ETheme 1.0 components/ETheme.qml
+ETimeDisplay 1.0 components/ETimeDisplay.qml
+EToast 1.0 components/EToast.qml
+EYearProgress 1.0 components/EYearProgress.qml
+MusicWindow 1.0 components/MusicWindow.qml
+depends QtQuick
+

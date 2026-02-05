@@ -1,0 +1,3 @@
+set(__QT_DEPLOY_TARGET_demo1_FILE D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/demo1.exe)
+set(__QT_DEPLOY_TARGET_demo1_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_demo1_RUNTIME_DLLS D:/qt/qt/6.10.2/mingw_64/bin/Qt6Quick.dll;D:/qt/qt/6.10.2/mingw_64/bin/Qt6Multimedia.dll;D:/qt/qt/6.10.2/mingw_64/bin/Qt6OpenGL.dll;D:/qt/qt/6.10.2/mingw_64/bin/Qt6QmlMeta.dll;D:/qt/qt/6.10.2/mingw_64/bin/Qt6QmlModels.dll;D:/qt/qt/6.10.2/mingw_64/bin/Qt6QmlWorkerScript.dll;D:/qt/qt/6.10.2/mingw_64/bin/Qt6Qml.dll;D:/qt/qt/6.10.2/mingw_64/bin/Qt6Network.dll;D:/qt/qt/6.10.2/mingw_64/bin/Qt6Gui.dll;D:/qt/qt/6.10.2/mingw_64/bin/Qt6Concurrent.dll;D:/qt/qt/6.10.2/mingw_64/bin/Qt6Core.dll)
