@@ -61,12 +61,6 @@ Page {
         textColor: theme.textColor          // 文字颜色
         shadowEnabled: true                 // 启用阴影效果
         enabled: !serialPortSwitch.checked  // 串口打开时禁用选择
-        model: [
-            { text: "COM1" },
-            { text: "COM2" },
-            { text: "COM3" },
-            { text: "COM4" }
-        ]
         anchors.top: refreshSerialButton.bottom
         anchors.topMargin: 8
         anchors.right: parent.right
@@ -235,9 +229,29 @@ Page {
     }
 
     property int selectedValue: 0
+    property bool throttleBlocked: false
 
     function getButtonColor(bitMask) {
         return (selectedValue & bitMask) ? theme.focusColor : theme.secondaryColor
+    }
+
+    Timer {
+        id: buttonThrottleTimer
+        interval: 200
+        repeat: false
+        onTriggered: {
+            throttleBlocked = false
+        }
+    }
+
+    function throttledButtonClick(bitMask) {
+        if (throttleBlocked) {
+            return
+        }
+        throttleBlocked = true
+        selectedValue ^= bitMask
+        centralSlider.value = selectedValue
+        buttonThrottleTimer.start()
     }
 
     Row {
@@ -258,10 +272,7 @@ Page {
             containerColor: getButtonColor(1)
             textColor: theme.textColor
             shadowEnabled: true
-            onClicked: {
-                selectedValue ^= 1
-                centralSlider.value = selectedValue
-            }
+            onClicked: throttledButtonClick(1)
         }
 
         EButton {
@@ -274,10 +285,7 @@ Page {
             containerColor: getButtonColor(2)
             textColor: theme.textColor
             shadowEnabled: true
-            onClicked: {
-                selectedValue ^= 2
-                centralSlider.value = selectedValue
-            }
+            onClicked: throttledButtonClick(2)
         }
 
         EButton {
@@ -290,10 +298,7 @@ Page {
             containerColor: getButtonColor(4)
             textColor: theme.textColor
             shadowEnabled: true
-            onClicked: {
-                selectedValue ^= 4
-                centralSlider.value = selectedValue
-            }
+            onClicked: throttledButtonClick(4)
         }
 
         EButton {
@@ -306,10 +311,7 @@ Page {
             containerColor: getButtonColor(8)
             textColor: theme.textColor
             shadowEnabled: true
-            onClicked: {
-                selectedValue ^= 8
-                centralSlider.value = selectedValue
-            }
+            onClicked: throttledButtonClick(8)
         }
 
         EButton {
@@ -322,10 +324,7 @@ Page {
             containerColor: getButtonColor(16)
             textColor: theme.textColor
             shadowEnabled: true
-            onClicked: {
-                selectedValue ^= 16
-                centralSlider.value = selectedValue
-            }
+            onClicked: throttledButtonClick(16)
         }
 
         EButton {
@@ -338,10 +337,7 @@ Page {
             containerColor: getButtonColor(32)
             textColor: theme.textColor
             shadowEnabled: true
-            onClicked: {
-                selectedValue ^= 32
-                centralSlider.value = selectedValue
-            }
+            onClicked: throttledButtonClick(32)
         }
 
         EButton {
@@ -354,10 +350,7 @@ Page {
             containerColor: getButtonColor(64)
             textColor: theme.textColor
             shadowEnabled: true
-            onClicked: {
-                selectedValue ^= 64
-                centralSlider.value = selectedValue
-            }
+            onClicked: throttledButtonClick(64)
         }
     }
 
