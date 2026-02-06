@@ -41,6 +41,18 @@ Page {
     }
 
     /**
+     * @brief Modbus管理器
+     * 负责Modbus RTU通信，读取电压、电流、功率数据
+     */
+    ModbusManager {
+        id: modbusManager
+
+        onErrorOccurred: {
+            console.log("Modbus错误:", error)
+        }
+    }
+
+    /**
      * @brief 更新串口下拉框数据模型
      * 将串口管理器返回的端口列表转换为下拉框可用的格式
      */
@@ -131,15 +143,18 @@ Page {
             if (checked) {
                 if (selectedSerialPortIndex >= 0 && serialPortDropdown.model[selectedSerialPortIndex]) {
                     var portName = serialPortDropdown.model[selectedSerialPortIndex].text
-                    var success = serialPortManager.openPort(portName)
-                    if (!success) {
+                    var success = modbusManager.connectToPort(portName)
+                    if (success) {
+                        modbusManager.startReading(1000)
+                    } else {
                         serialPortSwitch.checked = false
                     }
                 } else {
                     serialPortSwitch.checked = false
                 }
             } else {
-                serialPortManager.closePort()
+                modbusManager.stopReading()
+                modbusManager.disconnectPort()
             }
         }
     }
@@ -206,7 +221,7 @@ Page {
                     Layout.fillWidth: true
                 }
                 Text {
-                    text: "220.0 V"
+                    text: modbusManager.voltage.toFixed(1) + " V"
                     color: theme.textColor
                     font.pixelSize: 16
                     font.bold: true
@@ -237,7 +252,7 @@ Page {
                     Layout.fillWidth: true
                 }
                 Text {
-                    text: "2.5 A"
+                    text: modbusManager.current.toFixed(1) + " A"
                     color: theme.textColor
                     font.pixelSize: 16
                     font.bold: true
@@ -268,7 +283,7 @@ Page {
                     Layout.fillWidth: true
                 }
                 Text {
-                    text: "0.55 kW"
+                    text: modbusManager.power.toFixed(2) + " kW"
                     color: theme.textColor
                     font.pixelSize: 16
                     font.bold: true
