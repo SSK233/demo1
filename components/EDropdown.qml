@@ -109,11 +109,11 @@ Item {
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
 
-                    text: "\uf054"
+                    text: "\uf078"
                     font.family: "Font Awesome 6 Free"
                     font.pixelSize: 16
                     color: theme.focusColor
-                    rotation: root.opened ? (root.popupDirection === 1 ? -90 : 90) : 0
+                    rotation: root.opened ? 180 : 0
 
                     Behavior on rotation { RotationAnimation { duration: 250; easing.type: Easing.InOutQuad } }
                 }
