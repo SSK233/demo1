@@ -15,6 +15,7 @@ Rectangle {
     property real maximumValue: 100.0
     property bool showValueLabel: true
     property bool showSpinBox: false
+    property bool showStepButtons: true
 
     property bool showValueText: true
     property string valueSuffix: ""
@@ -73,6 +74,24 @@ Rectangle {
             newValue = Math.round(newValue);
         }
         value = Math.max(minimumValue, Math.min(maximumValue, newValue));
+    }
+
+    function _increaseValue() {
+        let newValue = value + stepSize;
+        if (decimals === 0) {
+            newValue = Math.round(newValue);
+        }
+        value = Math.min(maximumValue, newValue);
+        userValueChanged(value);
+    }
+
+    function _decreaseValue() {
+        let newValue = value - stepSize;
+        if (decimals === 0) {
+            newValue = Math.round(newValue);
+        }
+        value = Math.max(minimumValue, newValue);
+        userValueChanged(value);
     }
 
     onMinimumValueChanged: {
@@ -140,7 +159,9 @@ Rectangle {
         // 滑动轨道容器
         Item {
             id: track
-            width: Math.max(60, layoutRow.width - label.width - ((valueLabel.visible || valueText.visible) ? (valueLabel.visible ? valueLabel.width : valueText.width) : 0) - layoutRow.spacing * ((valueLabel.visible || valueText.visible) ? 2 : 1))
+            property int stepButtonsWidth: (valueText.visible && root.showStepButtons) ? 24 : 0
+            property int valueDisplayWidth: valueLabel.visible ? valueLabel.width : (valueText.visible ? valueText.width + stepButtonsWidth : 0)
+            width: Math.max(60, layoutRow.width - label.width - valueDisplayWidth - layoutRow.spacing * ((valueLabel.visible || valueText.visible) ? 2 : 1))
             height: 8
             anchors.verticalCenter: parent.verticalCenter
 
@@ -508,19 +529,190 @@ Rectangle {
             }
         }
 
-        // 纯文本数值显示（当不显示SpinBox时）
-        Text {
-            id: valueText
+        // 纯文本数值显示 + 上下箭头微调（当不显示SpinBox时）
+        Row {
+            id: valueTextContainer
             anchors.verticalCenter: parent.verticalCenter
             visible: root.showValueLabel && root.showValueText && !root.showSpinBox
-            color: theme.textColor
-            font.pixelSize: root.fontSize
-            width: implicitWidth  // 使用实际内容宽度而不是固定宽度
-            horizontalAlignment: Text.AlignHCenter
-            text: {
-                var realVal = root.value;
-                var txt = (root.decimals === 0 ? Math.round(realVal).toString() : realVal.toFixed(root.decimals));
-                return txt + root.valueSuffix;
+            spacing: 10
+
+            Text {
+                id: valueText
+                anchors.verticalCenter: parent.verticalCenter
+                width: Math.max(45, implicitWidth)
+                color: theme.textColor
+                font.pixelSize: root.fontSize
+                horizontalAlignment: Text.AlignRight
+                text: {
+                    var realVal = root.value;
+                    var txt = (root.decimals === 0 ? Math.round(realVal).toString() : realVal.toFixed(root.decimals));
+                    return txt + root.valueSuffix;
+                }
+            }
+
+            Column {
+                id: stepButtons
+                visible: root.showStepButtons
+                spacing: 2
+                anchors.verticalCenter: parent.verticalCenter
+
+                Rectangle {
+                    id: upButton
+                    width: 20
+                    height: 14
+                    radius: 4
+                    property color normalFillColor: root.backgroundVisible ? Qt.rgba(0.9, 0.9, 0.9, 0.12) : "transparent"
+                    property color hoverFillColor: root.backgroundVisible ? Qt.rgba(0.9, 0.9, 0.9, 0.20) : "transparent"
+                    property color pressedFillColor: Qt.tint(theme.focusColor, "#22ffffff")
+                    property color currentFillColor: normalFillColor
+                    property color normalBorderColor: root.backgroundVisible ? theme.getBorderColor(false) : "transparent"
+                    property color hoverBorderColor: root.backgroundVisible ? theme.getBorderColor(true) : "transparent"
+                    property color pressedBorderColor: theme.focusColor
+                    property color currentBorderColor: normalBorderColor
+                    color: currentFillColor
+                    border.color: currentBorderColor
+                    border.width: 1
+                    Behavior on color { ColorAnimation { duration: 120 } }
+                    Behavior on border.color { ColorAnimation { duration: 120 } }
+
+                    property real pressOffset: 0
+                    Behavior on pressOffset { NumberAnimation { duration: 140; easing.type: Easing.OutCubic } }
+                    transform: [
+                        Scale {
+                            id: upButtonScale
+                            origin.x: width / 2
+                            origin.y: height / 2
+                            Behavior on xScale { SpringAnimation { spring: 2.2; damping: 0.28 } }
+                            Behavior on yScale { SpringAnimation { spring: 2.2; damping: 0.28 } }
+                        },
+                        Translate { y: upButton.pressOffset }
+                    ]
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "\uf077"
+                        font.family: "Font Awesome 6 Free"
+                        font.pixelSize: 10
+                        color: theme.textColor
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onPressed: {
+                            upButtonScale.xScale = 1.0
+                            upButtonScale.yScale = 0.94
+                            upButton.pressOffset = -2
+                            upButton.currentFillColor = upButton.pressedFillColor
+                            upButton.currentBorderColor = upButton.pressedBorderColor
+                        }
+                        onReleased: {
+                            upButtonScale.xScale = 1.0
+                            upButtonScale.yScale = 1.0
+                            upButton.pressOffset = 0
+                            if (containsMouse) {
+                                upButton.currentFillColor = upButton.hoverFillColor
+                                upButton.currentBorderColor = upButton.hoverBorderColor
+                            } else {
+                                upButton.currentFillColor = upButton.normalFillColor
+                                upButton.currentBorderColor = upButton.normalBorderColor
+                            }
+                        }
+                        onEntered: {
+                            upButton.currentFillColor = upButton.hoverFillColor
+                            upButton.currentBorderColor = upButton.hoverBorderColor
+                        }
+                        onExited: {
+                            upButton.currentFillColor = upButton.normalFillColor
+                            upButton.currentBorderColor = upButton.normalBorderColor
+                        }
+                        onClicked: {
+                            root._increaseValue()
+                            root.focused = true
+                            focusFlashReset.restart()
+                        }
+                    }
+                }
+
+                Rectangle {
+                    id: downButton
+                    width: 20
+                    height: 14
+                    radius: 4
+                    property color normalFillColor: root.backgroundVisible ? Qt.rgba(0.9, 0.9, 0.9, 0.12) : "transparent"
+                    property color hoverFillColor: root.backgroundVisible ? Qt.rgba(0.9, 0.9, 0.9, 0.20) : "transparent"
+                    property color pressedFillColor: Qt.tint(theme.focusColor, "#22ffffff")
+                    property color currentFillColor: normalFillColor
+                    property color normalBorderColor: root.backgroundVisible ? theme.getBorderColor(false) : "transparent"
+                    property color hoverBorderColor: root.backgroundVisible ? theme.getBorderColor(true) : "transparent"
+                    property color pressedBorderColor: theme.focusColor
+                    property color currentBorderColor: normalBorderColor
+                    color: currentFillColor
+                    border.color: currentBorderColor
+                    border.width: 1
+                    Behavior on color { ColorAnimation { duration: 120 } }
+                    Behavior on border.color { ColorAnimation { duration: 120 } }
+
+                    property real pressOffset: 0
+                    Behavior on pressOffset { NumberAnimation { duration: 140; easing.type: Easing.OutCubic } }
+                    transform: [
+                        Scale {
+                            id: downButtonScale
+                            origin.x: width / 2
+                            origin.y: height / 2
+                            Behavior on xScale { SpringAnimation { spring: 2.2; damping: 0.28 } }
+                            Behavior on yScale { SpringAnimation { spring: 2.2; damping: 0.28 } }
+                        },
+                        Translate { y: downButton.pressOffset }
+                    ]
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "\uf078"
+                        font.family: "Font Awesome 6 Free"
+                        font.pixelSize: 10
+                        color: theme.textColor
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onPressed: {
+                            downButtonScale.xScale = 1.0
+                            downButtonScale.yScale = 0.94
+                            downButton.pressOffset = 2
+                            downButton.currentFillColor = downButton.pressedFillColor
+                            downButton.currentBorderColor = downButton.pressedBorderColor
+                        }
+                        onReleased: {
+                            downButtonScale.xScale = 1.0
+                            downButtonScale.yScale = 1.0
+                            downButton.pressOffset = 0
+                            if (containsMouse) {
+                                downButton.currentFillColor = downButton.hoverFillColor
+                                downButton.currentBorderColor = downButton.hoverBorderColor
+                            } else {
+                                downButton.currentFillColor = downButton.normalFillColor
+                                downButton.currentBorderColor = downButton.normalBorderColor
+                            }
+                        }
+                        onEntered: {
+                            downButton.currentFillColor = downButton.hoverFillColor
+                            downButton.currentBorderColor = downButton.hoverBorderColor
+                        }
+                        onExited: {
+                            downButton.currentFillColor = downButton.normalFillColor
+                            downButton.currentBorderColor = downButton.normalBorderColor
+                        }
+                        onClicked: {
+                            root._decreaseValue()
+                            root.focused = true
+                            focusFlashReset.restart()
+                        }
+                    }
+                }
             }
         }
     }
