@@ -1,6 +1,7 @@
 // EHoverCard.qml
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Effects
 
 Item {
     id: root
@@ -12,11 +13,24 @@ Item {
     property real rotationX: 0               // 当前 X 旋转角度
     property real rotationY: 0               // 当前 Y 旋转角度
     property bool isHovered: mouseArea.containsMouse
+    property bool shadowEnabled: true        // 是否启用阴影
     default property alias content: contentItem.data  // 插槽，允许外部添加内容
 
     // === 缩放动画 ===
     scale: mouseArea.pressed ? 0.95 : 1.0
     Behavior on scale { SpringAnimation { spring: 2; damping: 0.2 } }
+
+    // === 阴影效果 ===
+    MultiEffect {
+        source: card
+        anchors.fill: card
+        visible: root.shadowEnabled
+        shadowEnabled: root.shadowEnabled
+        shadowColor: theme.shadowColor
+        shadowBlur: theme.shadowBlur
+        shadowHorizontalOffset: theme.shadowXOffset
+        shadowVerticalOffset: theme.shadowYOffset
+    }
 
     // === 卡片背景与旋转效果 ===
     Rectangle {

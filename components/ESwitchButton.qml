@@ -110,7 +110,7 @@ Rectangle {
                 id: trackText
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: checked ? parent.left : parent.right
-                anchors.rightMargin: checked ? -thumbSize - 6 : 4
+                anchors.rightMargin: checked ? -thumbSize - 7 : 4
                 text: checked ? "ON" : "OFF"
                 font.pixelSize: 10
                 font.bold: true
