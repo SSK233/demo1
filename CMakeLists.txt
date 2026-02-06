@@ -1,4 +1,4 @@
-﻿cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.16)
 project(demo1 VERSION 0.1 LANGUAGES CXX)
 find_package(Qt6 REQUIRED COMPONENTS Quick Multimedia Network)
 qt_standard_project_setup(REQUIRES 6.8)
@@ -12,7 +12,7 @@ qt_add_qml_module(demo1
     QML_FILES
                 Main.qml
                 pages/HomePage.qml
-                pages/FavoritesPage.qml
+                pages/WaveformPage.qml
                 pages/SettingsPage.qml
                 ${QML_COMPONENTS}
 )

@@ -108,9 +108,9 @@ ApplicationWindow {
                     iconChar: "\uf015"  // Font Awesome图标字符（home图标）
                 }
                 
-                // 导航菜单项：收藏
-                ListElement { 
-                    display: "收藏"  // 显示文本
+                // 导航菜单项：波形图
+                ListElement {
+                    display: "波形图"  // 显示文本
                     iconChar: "\uf005"  // Font Awesome图标字符（star图标）
                 }
                 
@@ -206,20 +206,20 @@ ApplicationWindow {
                 HomePage { id: homePage; anchors.fill: parent }
             }
 
-            // 收藏页容器 - 包含FavoritesPage组件
+            // 波形图页容器 - 包含WaveformPage组件
             Item {
                 // 水平方向填充布局
                 Layout.fillWidth: true
-                
+
                 // 垂直方向填充布局
                 Layout.fillHeight: true
-                
+
                 // 透明度 - 根据可见性动态调整（用于页面切换动画）
                 opacity: visible ? 1 : 0
-                
+
                 // Y轴位置 - 根据可见性动态调整（用于页面切换动画）
                 y: visible ? 0 : 12
-                
+
                 // 透明度变化动画
                 Behavior on opacity {
                     NumberAnimation {
@@ -227,7 +227,7 @@ ApplicationWindow {
                         easing.type: Easing.OutCubic  // 动画缓动类型：立方出
                     }
                 }
-                
+
                 // Y轴位置变化动画
                 Behavior on y {
                     NumberAnimation {
@@ -235,9 +235,9 @@ ApplicationWindow {
                         easing.type: Easing.OutCubic  // 动画缓动类型：立方出
                     }
                 }
-                
-                // 收藏页组件 - 填充整个容器
-                FavoritesPage { anchors.fill: parent }
+
+                // 波形图页组件 - 填充整个容器
+                WaveformPage { anchors.fill: parent }
             }
 
             // 设置页容器 - 包含SettingsPage组件
