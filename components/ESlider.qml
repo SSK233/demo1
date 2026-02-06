@@ -19,7 +19,7 @@ Rectangle {
     property bool showValueText: true
     property string valueSuffix: ""
     property int decimals: 0
-    property int labelWidth: 60
+    property int labelWidth: 120
     property int valueWidth: 60
     property int stepSize: 1
     property bool valueEditable: true
@@ -36,7 +36,7 @@ Rectangle {
     property color borderColor: theme.getBorderColor(focused)
     
     // === 间距属性 ===
-    property int itemSpacing:  - 12
+    property int itemSpacing: 8
     property int containerMargins: 10
 
     // === 状态属性 ===
@@ -67,7 +67,11 @@ Rectangle {
         const denom = Math.max(0, maxWidth);
         const percent = denom > 0 ? handle.x / denom : 0;
         const clampedPercent = Math.max(0, Math.min(1, percent));
-        const newValue = minimumValue + clampedPercent * (maximumValue - minimumValue);
+        let newValue = minimumValue + clampedPercent * (maximumValue - minimumValue);
+        // 如果decimals为0，四舍五入为整数
+        if (decimals === 0) {
+            newValue = Math.round(newValue);
+        }
         value = Math.max(minimumValue, Math.min(maximumValue, newValue));
     }
 

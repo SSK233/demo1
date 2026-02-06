@@ -198,6 +198,21 @@ Page {
         }
     }
 
+    // 中央滑块组件
+    ESlider {
+        id: centralSlider
+        text: "输入电流I/A "
+        width: 400
+        minimumValue: 0
+        maximumValue: 127
+        decimals: 0
+        stepSize: 1
+        anchors.centerIn: parent
+        onUserValueChanged: {
+            console.log("Slider value changed:", value)
+        }
+    }
+
     EAnimatedWindow {
         id: animationWrapper
     }
