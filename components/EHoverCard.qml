@@ -20,31 +20,17 @@ Item {
     scale: mouseArea.pressed ? 0.95 : 1.0
     Behavior on scale { SpringAnimation { spring: 2; damping: 0.2 } }
 
-    // === 阴影效果 ===
-    MultiEffect {
-        source: card
-        anchors.fill: card
-        visible: root.shadowEnabled
-        shadowEnabled: root.shadowEnabled
-        shadowColor: theme.shadowColor
-        shadowBlur: theme.shadowBlur
-        shadowHorizontalOffset: theme.shadowXOffset
-        shadowVerticalOffset: theme.shadowYOffset
-    }
-
     // === 卡片背景与旋转效果 ===
-    Rectangle {
-        id: card
+    Item {
+        id: cardContainer
         anchors.fill: parent
-        radius: 20
-        color: theme.secondaryColor
 
         transform: [
             // Y 轴旋转
             Rotation {
                 id: yRotation
-                origin.x: card.width / 2
-                origin.y: card.height / 2
+                origin.x: cardContainer.width / 2
+                origin.y: cardContainer.height / 2
                 axis { x: 0; y: 1; z: 0 }
                 angle: root.rotationY
                 Behavior on angle {
@@ -55,8 +41,8 @@ Item {
             // X 轴旋转
             Rotation {
                 id: xRotation
-                origin.x: card.width / 2
-                origin.y: card.height / 2
+                origin.x: cardContainer.width / 2
+                origin.y: cardContainer.height / 2
                 axis { x: 1; y: 0; z: 0 }
                 angle: root.rotationX
                 Behavior on angle {
@@ -66,11 +52,31 @@ Item {
             }
         ]
 
-        // === 内容容器 ===
-        Item {
-            id: contentItem
+        // === 阴影效果（跟随旋转）===
+        MultiEffect {
+            source: card
+            anchors.fill: card
+            visible: root.shadowEnabled
+            shadowEnabled: root.shadowEnabled
+            shadowColor: theme.shadowColor
+            shadowBlur: theme.shadowBlur
+            shadowHorizontalOffset: theme.shadowXOffset
+            shadowVerticalOffset: theme.shadowYOffset
+        }
+
+        // === 卡片背景 ===
+        Rectangle {
+            id: card
             anchors.fill: parent
-            anchors.margins: 15
+            radius: 20
+            color: theme.secondaryColor
+
+            // === 内容容器 ===
+            Item {
+                id: contentItem
+                anchors.fill: parent
+                anchors.margins: 15
+            }
         }
     }
 
