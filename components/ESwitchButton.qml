@@ -25,6 +25,8 @@ Rectangle {
     property color hoverColor: Qt.darker(containerColor, 1.2)
     property color textColor: theme.textColor
     property color thumbColor: theme.focusColor
+    property color trackUncheckedColor: "#999999"
+    property color trackCheckedColor: theme.textColor
     property bool shadowEnabled: true
     property real pressedScale: 0.96
     property color shadowColor: theme.shadowColor
@@ -98,7 +100,7 @@ Rectangle {
             width: trackWidth
             height: trackHeight
             radius: height / 2
-            color: checked ? theme.textColor : "#999999"
+            color: checked ? root.trackCheckedColor : root.trackUncheckedColor
             Layout.alignment: Qt.AlignVCenter
             clip: true
             Behavior on color { ColorAnimation { duration: 150 } }

@@ -61,7 +61,9 @@ Page {
         size: "s"                          // 小号尺寸
         containerColor: theme.secondaryColor // 背景颜色
         textColor: theme.textColor          // 文字颜色
-        thumbColor: theme.focusColor        // 滑块颜色
+        thumbColor: "#FFFFFF"               // 滑块颜色（白色）
+        trackUncheckedColor: theme.isDark ? "#555555" : "#CCCCCC"  // 轨道未选中颜色
+        trackCheckedColor: theme.isDark ? "#66BB6A" : "#4CAF50"    // 轨道选中颜色（绿色）
         shadowEnabled: true                 // 启用阴影效果
         anchors.top: serialPortDropdown.bottom
         anchors.topMargin: 8
