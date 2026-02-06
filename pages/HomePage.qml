@@ -198,18 +198,187 @@ Page {
         }
     }
 
+    property int selectedValue: 0
+
+    function getButtonColor(bitMask) {
+        return (selectedValue & bitMask) ? theme.focusColor : theme.secondaryColor
+    }
+
+    Row {
+        id: valueButtonsRow
+        spacing: 12
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: -80
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenterOffset: -90
+
+        EButton {
+            id: btn1
+            text: "1"
+            size: "m"
+            width: 48
+            height: 48
+            radius: 24
+            containerColor: getButtonColor(1)
+            textColor: theme.textColor
+            shadowEnabled: true
+            onClicked: {
+                selectedValue ^= 1
+                centralSlider.value = selectedValue
+            }
+        }
+
+        EButton {
+            id: btn2
+            text: "2"
+            size: "m"
+            width: 48
+            height: 48
+            radius: 24
+            containerColor: getButtonColor(2)
+            textColor: theme.textColor
+            shadowEnabled: true
+            onClicked: {
+                selectedValue ^= 2
+                centralSlider.value = selectedValue
+            }
+        }
+
+        EButton {
+            id: btn4
+            text: "4"
+            size: "m"
+            width: 48
+            height: 48
+            radius: 24
+            containerColor: getButtonColor(4)
+            textColor: theme.textColor
+            shadowEnabled: true
+            onClicked: {
+                selectedValue ^= 4
+                centralSlider.value = selectedValue
+            }
+        }
+
+        EButton {
+            id: btn8
+            text: "8"
+            size: "m"
+            width: 48
+            height: 48
+            radius: 24
+            containerColor: getButtonColor(8)
+            textColor: theme.textColor
+            shadowEnabled: true
+            onClicked: {
+                selectedValue ^= 8
+                centralSlider.value = selectedValue
+            }
+        }
+
+        EButton {
+            id: btn16
+            text: "16"
+            size: "m"
+            width: 48
+            height: 48
+            radius: 24
+            containerColor: getButtonColor(16)
+            textColor: theme.textColor
+            shadowEnabled: true
+            onClicked: {
+                selectedValue ^= 16
+                centralSlider.value = selectedValue
+            }
+        }
+
+        EButton {
+            id: btn32
+            text: "32"
+            size: "m"
+            width: 48
+            height: 48
+            radius: 24
+            containerColor: getButtonColor(32)
+            textColor: theme.textColor
+            shadowEnabled: true
+            onClicked: {
+                selectedValue ^= 32
+                centralSlider.value = selectedValue
+            }
+        }
+
+        EButton {
+            id: btn64
+            text: "64"
+            size: "m"
+            width: 48
+            height: 48
+            radius: 24
+            containerColor: getButtonColor(64)
+            textColor: theme.textColor
+            shadowEnabled: true
+            onClicked: {
+                selectedValue ^= 64
+                centralSlider.value = selectedValue
+            }
+        }
+    }
+
     // 中央滑块组件
     ESlider {
         id: centralSlider
         text: "输入电流I/A "
-        width: 400
+        width: 450
         minimumValue: 0
         maximumValue: 127
         decimals: 0
         stepSize: 1
-        anchors.centerIn: parent
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: -80
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenterOffset: -30
         onUserValueChanged: {
             console.log("Slider value changed:", value)
+        }
+    }
+
+    // 载入按钮
+    EButton {
+        id: loadButton
+        text: "载入"
+        iconCharacter: "\uf019"
+        size: "s"
+        containerColor: theme.secondaryColor
+        textColor: theme.textColor
+        iconColor: theme.textColor
+        shadowEnabled: true
+        anchors.top: centralSlider.bottom
+        anchors.topMargin: 20
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: -140
+        onClicked: {
+            console.log("载入电流值:", centralSlider.value)
+            selectedValue = centralSlider.value
+        }
+    }
+
+    // 卸载按钮
+    EButton {
+        id: unloadButton
+        text: "卸载"
+        iconCharacter: "\uf1f8"
+        size: "s"
+        containerColor: theme.secondaryColor
+        textColor: theme.textColor
+        iconColor: theme.textColor
+        shadowEnabled: true
+        anchors.top: centralSlider.bottom
+        anchors.topMargin: 20
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: -20
+        onClicked: {
+            console.log("卸载电流值")
         }
     }
 
