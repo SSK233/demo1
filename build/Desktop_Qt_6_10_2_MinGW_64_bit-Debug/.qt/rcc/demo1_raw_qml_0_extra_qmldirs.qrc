@@ -1,7 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/qml/EvolveUI/">
-    <file alias="pages/qmldir">D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/EvolveUI/pages/qmldir</file>
-    <file alias="components/qmldir">D:/EvolveUI/tools/demo1/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/EvolveUI/components/qmldir</file>
-  </qresource>
-</RCC>
-
