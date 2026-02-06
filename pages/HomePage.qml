@@ -3,21 +3,47 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import EvolveUI
 
+/**
+ * @file HomePage.qml
+ * @brief 主页组件 - 设备控制面板
+ *
+ * 主要功能模块：
+ * - 串口通信管理（端口选择、开关控制）
+ * - 风机控制
+ * - 电气参数显示（电压、电流、功率）
+ * - 电流值设置（二进制位选择 + 滑块调节）
+ */
 Page {
     id: window
+
+    /** @brief 动画窗口别名，用于页面切换动画 */
     property alias animatedWindow: animationWrapper
+
+    /** @brief 当前选中的串口索引，-1表示未选中 */
     property int selectedSerialPortIndex: -1
 
+    /**
+     * @brief 串口管理器
+     * 负责串口通信的底层操作，包括端口刷新、打开、关闭等
+     */
     SerialPortManager {
         id: serialPortManager
+
+        /** 可用串口列表变化时更新下拉框数据 */
         onAvailablePortsChanged: {
             updateSerialPortModel()
         }
+
+        /** 串口错误处理回调 */
         onErrorOccurred: {
             console.log("串口错误:", error)
         }
     }
 
+    /**
+     * @brief 更新串口下拉框数据模型
+     * 将串口管理器返回的端口列表转换为下拉框可用的格式
+     */
     function updateSerialPortModel() {
         var ports = serialPortManager.availablePorts
         var newModel = []
@@ -27,11 +53,19 @@ Page {
         serialPortDropdown.model = newModel
     }
 
+    /** @brief 页面背景 - 透明色，允许底层背景显示 */
     background: Rectangle {
         color: "transparent"
     }
 
-    // 刷新串口按钮 - 位于页面右上角
+    // ========================================================================
+    // 串口控制区域
+    // ========================================================================
+
+    /**
+     * @brief 刷新串口按钮
+     * 点击后刷新可用串口列表
+     */
     EButton {
         id: refreshSerialButton
         text: "刷新串口"
@@ -50,7 +84,11 @@ Page {
         }
     }
 
-    // 串口选择下拉框
+    /**
+     * @brief 串口选择下拉框
+     * 显示可用串口列表，供用户选择
+     * 串口打开时自动禁用
+     */
     EDropdown {
         id: serialPortDropdown
         title: "选择串口"                   // 默认提示文字
@@ -70,7 +108,10 @@ Page {
         }
     }
 
-    // 串口开关
+    /**
+     * @brief 串口开关
+     * 控制串口的连接/断开状态
+     */
     ESwitchButton {
         id: serialPortSwitch
         z: -1                               // 确保下拉框展开时不会被遮挡
@@ -103,7 +144,10 @@ Page {
         }
     }
 
-    // 风机开关
+    /**
+     * @brief 风机开关
+     * 控制设备风机的运行状态
+     */
     ESwitchButton {
         id: fanSwitch
         z: -1   
@@ -124,7 +168,14 @@ Page {
         }
     }
 
-    // 电气参数卡片 - 显示电压、电流、功率
+    // ========================================================================
+    // 电气参数显示区域
+    // ========================================================================
+
+    /**
+     * @brief 电气参数卡片
+     * 显示电压、电流、功率三个电气参数
+     */
     EHoverCard {
         id: electricCard
         z: -1   
@@ -141,7 +192,7 @@ Page {
             anchors.margins: 16
             spacing: 12
 
-            // --- 电压参数组 ---
+            /** 电压显示区域 */
             ColumnLayout {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -164,7 +215,7 @@ Page {
                 }
             }
 
-            // --- 分隔线 ---
+            /** 分隔线 */
             Rectangle {
                 Layout.fillWidth: true
                 height: 1
@@ -172,7 +223,7 @@ Page {
                 opacity: 0.3
             }
 
-            // --- 电流参数组 ---
+            /** 电流显示区域 */
             ColumnLayout {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -195,7 +246,7 @@ Page {
                 }
             }
 
-            // --- 分隔线 ---
+            /** 分隔线 */
             Rectangle {
                 Layout.fillWidth: true
                 height: 1
@@ -203,7 +254,7 @@ Page {
                 opacity: 0.3
             }
 
-            // --- 功率参数组 ---
+            /** 功率显示区域 */
             ColumnLayout {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -228,13 +279,29 @@ Page {
         }
     }
 
+    // ========================================================================
+    // 电流值设置区域
+    // ========================================================================
+
+    /** @brief 当前选中的位掩码值（用于按钮组合选择） */
     property int selectedValue: 0
+
+    /** @brief 按钮节流锁，防止快速连续点击 */
     property bool throttleBlocked: false
 
+    /**
+     * @brief 根据位掩码获取按钮背景色
+     * @param bitMask 位掩码值
+     * @return 如果当前值包含该位，返回高亮色；否则返回普通色
+     */
     function getButtonColor(bitMask) {
         return (selectedValue & bitMask) ? theme.focusColor : theme.secondaryColor
     }
 
+    /**
+     * @brief 按钮节流定时器
+     * 200ms内只响应第一次点击，防止重复触发
+     */
     Timer {
         id: buttonThrottleTimer
         interval: 200
@@ -244,6 +311,12 @@ Page {
         }
     }
 
+    /**
+     * @brief 节流点击处理函数
+     * @param bitMask 要切换的位掩码
+     * 在200ms内，只有第一次点击会生效，后续点击被忽略
+     * 使用异或运算切换对应位的状态
+     */
     function throttledButtonClick(bitMask) {
         if (throttleBlocked) {
             return
@@ -254,6 +327,11 @@ Page {
         buttonThrottleTimer.start()
     }
 
+    /**
+     * @brief 位值按钮行
+     * 用于二进制位选择（1, 2, 4, 8, 16, 32, 64）
+     * 每个按钮代表一个二进制位，点击切换该位的状态
+     */
     Row {
         id: valueButtonsRow
         spacing: 12
@@ -262,6 +340,7 @@ Page {
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: -90
 
+        /** 位0按钮 - 值为1 */
         EButton {
             id: btn1
             text: "1"
@@ -275,6 +354,7 @@ Page {
             onClicked: throttledButtonClick(1)
         }
 
+        /** 位1按钮 - 值为2 */
         EButton {
             id: btn2
             text: "2"
@@ -288,6 +368,7 @@ Page {
             onClicked: throttledButtonClick(2)
         }
 
+        /** 位2按钮 - 值为4 */
         EButton {
             id: btn4
             text: "4"
@@ -301,6 +382,7 @@ Page {
             onClicked: throttledButtonClick(4)
         }
 
+        /** 位3按钮 - 值为8 */
         EButton {
             id: btn8
             text: "8"
@@ -314,6 +396,7 @@ Page {
             onClicked: throttledButtonClick(8)
         }
 
+        /** 位4按钮 - 值为16 */
         EButton {
             id: btn16
             text: "16"
@@ -327,6 +410,7 @@ Page {
             onClicked: throttledButtonClick(16)
         }
 
+        /** 位5按钮 - 值为32 */
         EButton {
             id: btn32
             text: "32"
@@ -340,6 +424,7 @@ Page {
             onClicked: throttledButtonClick(32)
         }
 
+        /** 位6按钮 - 值为64 */
         EButton {
             id: btn64
             text: "64"
@@ -354,7 +439,10 @@ Page {
         }
     }
 
-    // 中央滑块组件
+    /**
+     * @brief 中央滑块组件
+     * 用于精确设置电流值，范围0-127
+     */
     ESlider {
         id: centralSlider
         text: "输入电流I/A "
@@ -372,7 +460,10 @@ Page {
         }
     }
 
-    // 载入按钮
+    /**
+     * @brief 载入按钮
+     * 将滑块当前值应用到设备
+     */
     EButton {
         id: loadButton
         text: "载入"
@@ -392,7 +483,10 @@ Page {
         }
     }
 
-    // 卸载按钮
+    /**
+     * @brief 卸载按钮
+     * 清除/重置电流设置
+     */
     EButton {
         id: unloadButton
         text: "卸载"
@@ -411,6 +505,7 @@ Page {
         }
     }
 
+    /** @brief 动画窗口包装器 - 用于页面切换动画效果 */
     EAnimatedWindow {
         id: animationWrapper
     }
