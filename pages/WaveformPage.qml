@@ -33,8 +33,13 @@ Page {
 
                 RowLayout {
                     width: parent.width
-                    height: 40
+                    height: 60
                     spacing: 16
+
+                    Item {
+                        width: 10
+                        height: 10
+                    }
 
                     EButton {
                         id: clearButton
@@ -53,17 +58,11 @@ Page {
                     Item {
                         Layout.fillWidth: true
                     }
-
-                    Text {
-                        text: "数据点数: " + waveformDataManager.voltageHistory.length + " / " + waveformDataManager.maxDataPoints
-                        color: theme.textColor
-                        font.pixelSize: 12
-                    }
                 }
 
                 EAreaChart {
                     id: voltageChart
-                    width: parent.width
+                    width: parent.width - 10
                     height: 280
                     title: "电压波形"
                     subtitle: "实时电压变化 (V)"
@@ -77,7 +76,7 @@ Page {
 
                 EAreaChart {
                     id: currentChart
-                    width: parent.width
+                    width: parent.width - 10
                     height: 280
                     title: "电流波形"
                     subtitle: "实时电流变化 (A)"
@@ -91,7 +90,7 @@ Page {
 
                 EAreaChart {
                     id: powerChart
-                    width: parent.width
+                    width: parent.width - 10
                     height: 280
                     title: "功率波形"
                     subtitle: "实时功率变化 (kW)"
@@ -101,6 +100,7 @@ Page {
                     chartPadding: 10
                     titleFontSize: 14
                     subtitleFontSize: 10
+                    startFromFirstValue: true
                 }
             }
         }

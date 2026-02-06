@@ -64,6 +64,7 @@ Rectangle {
     property color tooltipColor: theme.primaryColor
     property color tooltipTextColor: theme.textColor
     property int hoveredIndex: -1
+    property bool startFromFirstValue: false
 
     signal pointClicked(int index, var dataPoint)
     signal pointHovered(int index, var dataPoint)
@@ -95,6 +96,31 @@ Rectangle {
             }
         }
         return max;
+    }
+
+    property real minValue: {
+        if (root.startFromFirstValue) {
+            var series = root.effectiveDataSeries;
+            if (series.length > 0 && series[0].data.length > 0) {
+                return series[0].data[0].value;
+            }
+        }
+        var min = Infinity;
+        var series = root.effectiveDataSeries;
+        for (var s = 0; s < series.length; s++) {
+            var data = series[s].data;
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].value < min) {
+                    min = data[i].value;
+                }
+            }
+        }
+        return min === Infinity ? 0 : min;
+    }
+
+    property real valueRange: {
+        var range = root.maxValue - root.minValue;
+        return range > 0 ? range : 1;
     }
 
     property real chartWidth: width - chartPadding * 2
@@ -158,13 +184,13 @@ Rectangle {
             anchors.centerIn: parent
             text: {
                 switch(root.lineStyle) {
-                    case EAreaChart.LineStyle.Smooth: return "Smooth"
-                    case EAreaChart.LineStyle.Linear: return "Linear"
-                    case EAreaChart.LineStyle.Step: return "Step"
-                    default: return "Smooth"
+                    case EAreaChart.LineStyle.Smooth: return "S"
+                    case EAreaChart.LineStyle.Linear: return "L"
+                    case EAreaChart.LineStyle.Step: return "St"
+                    default: return "S"
                 }
             }
-            font.pixelSize: 12
+            font.pixelSize: 10
             color: root.textColor
         }
 
@@ -372,7 +398,8 @@ Rectangle {
                     var points = [];
                     for (var i = 0; i < data.length; i++) {
                         var x = stepX * i + stepX / 2; // 居中对齐
-                        var y = 8 + chartHeight - (data[i].value / root.maxValue) * chartHeight;
+                        var normalizedValue = (data[i].value - root.minValue) / root.valueRange;
+                        var y = 8 + chartHeight - normalizedValue * chartHeight;
                         points.push({x: x, y: y});
                     }
 
@@ -466,7 +493,8 @@ Rectangle {
                 var targetX = Math.max(10, Math.min(baseX - tooltip.width/2, root.width - tooltip.width - 10));
                 
                 var dataValue = series[0].data[index].value;
-                var dataY = root.topPadding + root.chartHeight - (dataValue / root.maxValue) * root.chartHeight;
+                var normalizedValue = (dataValue - root.minValue) / root.valueRange;
+                var dataY = root.topPadding + root.chartHeight - normalizedValue * root.chartHeight;
                 var targetY = Math.max(10, dataY - tooltip.height - 10);
                 
                 // 如果之前是隐藏状态，直接设置位置不显示动画
@@ -515,13 +543,13 @@ Rectangle {
 
         Repeater {
             model: {
-                var result = []
-                var data = xAxisLabels.allData
-                var step = xAxisLabels.step
+                var result = [];
+                var data = xAxisLabels.allData;
+                var step = xAxisLabels.step;
                 for (var i = 0; i < data.length; i += step) {
-                    result.push(data[i])
+                    result.push(data[i]);
                 }
-                return result
+                return result;
             }
             delegate: Text {
                 width: root.chartWidth / Math.max(1, xAxisLabels.displayCount)
