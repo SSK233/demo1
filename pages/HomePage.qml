@@ -57,6 +57,7 @@ Page {
     // 串口开关
     ESwitchButton {
         id: serialPortSwitch
+        z: -1                               // 确保下拉框展开时不会被遮挡
         text: "串口开关"
         size: "s"                          // 小号尺寸
         containerColor: theme.secondaryColor // 背景颜色

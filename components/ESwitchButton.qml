@@ -105,6 +105,19 @@ Rectangle {
             clip: true
             Behavior on color { ColorAnimation { duration: 150 } }
 
+            // === 轨道状态文字 ===
+            Text {
+                id: trackText
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: checked ? parent.left : parent.right
+                anchors.rightMargin: checked ? -thumbSize - 6 : 4
+                text: checked ? "ON" : "OFF"
+                font.pixelSize: 10
+                font.bold: true
+                color: root.thumbColor
+                opacity: 0.8
+            }
+
             // === 滑块 ===
             Rectangle {
                 id: thumb
@@ -113,6 +126,7 @@ Rectangle {
                 radius: thumbSize / 2
                 color: root.thumbColor
                 anchors.verticalCenter: parent.verticalCenter
+                z: 1
 
                 property int edgePadding: 1
                 x: checked ? (track.width - width - edgePadding) : edgePadding
