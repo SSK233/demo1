@@ -59,7 +59,7 @@ ApplicationWindow {
             property int collapsedWidth: 85
             
             // 侧边栏展开时的宽度
-            property int expandedWidth: 140
+            property int expandedWidth: 150
             
             // 侧边栏内边距设置为0
             padding: 0
@@ -111,7 +111,7 @@ ApplicationWindow {
                 // 导航菜单项：波形图
                 ListElement {
                     display: "波形图"  // 显示文本
-                    iconChar: "\uf005"  // Font Awesome图标字符（star图标）
+                    iconChar: "\uf201"  // Font Awesome图标字符（波形图图标）
                 }
                 
                 // 导航菜单项：设置
