@@ -11,6 +11,7 @@ Item {
     // === 基础属性 ===
     property string title: "请选择"
     property bool opened: false
+    property bool enabled: true
     property var model: []
     property int selectedIndex: -1
     signal selectionChanged(int index, var item)
@@ -122,7 +123,8 @@ Item {
             MouseArea {
                 anchors.fill: parent
                 hoverEnabled: true
-                cursorShape: Qt.PointingHandCursor
+                cursorShape: root.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+                enabled: root.enabled
                 onPressed: {
                     headerScale.xScale = root.pressedScale
                     headerScale.yScale = root.pressedScale

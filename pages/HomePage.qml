@@ -6,6 +6,27 @@ import EvolveUI
 Page {
     id: window
     property alias animatedWindow: animationWrapper
+    property int selectedSerialPortIndex: -1
+
+    SerialPortManager {
+        id: serialPortManager
+        onAvailablePortsChanged: {
+            updateSerialPortModel()
+        }
+        onErrorOccurred: {
+            console.log("串口错误:", error)
+        }
+    }
+
+    function updateSerialPortModel() {
+        var ports = serialPortManager.availablePorts
+        var newModel = []
+        for (var i = 0; i < ports.length; i++) {
+            newModel.push({ text: ports[i] })
+        }
+        serialPortDropdown.model = newModel
+    }
+
     background: Rectangle {
         color: "transparent"
     }
@@ -25,7 +46,7 @@ Page {
         anchors.right: parent.right
         anchors.margins: 16                // 与边缘之间的间距
         onClicked: {
-            console.log("刷新串口")
+            serialPortManager.refreshPorts()
         }
     }
 
@@ -39,6 +60,7 @@ Page {
         containerColor: theme.secondaryColor // 背景颜色
         textColor: theme.textColor          // 文字颜色
         shadowEnabled: true                 // 启用阴影效果
+        enabled: !serialPortSwitch.checked  // 串口打开时禁用选择
         model: [
             { text: "COM1" },
             { text: "COM2" },
@@ -50,7 +72,7 @@ Page {
         anchors.right: parent.right
         anchors.rightMargin: 16
         onSelectionChanged: {
-            console.log("选择串口:", index, item.text)
+            selectedSerialPortIndex = index
         }
     }
 
@@ -71,13 +93,26 @@ Page {
         anchors.right: parent.right
         anchors.rightMargin: 16
         onToggled: {
-            console.log("串口开关状态:", checked ? "开启" : "关闭")
+            if (checked) {
+                if (selectedSerialPortIndex >= 0 && serialPortDropdown.model[selectedSerialPortIndex]) {
+                    var portName = serialPortDropdown.model[selectedSerialPortIndex].text
+                    var success = serialPortManager.openPort(portName)
+                    if (!success) {
+                        serialPortSwitch.checked = false
+                    }
+                } else {
+                    serialPortSwitch.checked = false
+                }
+            } else {
+                serialPortManager.closePort()
+            }
         }
     }
 
     // 风机开关
     ESwitchButton {
         id: fanSwitch
+        z: -1   
         text: "风机开关"
         size: "s"                          // 小号尺寸
         containerColor: theme.secondaryColor // 背景颜色
@@ -98,6 +133,7 @@ Page {
     // 电气参数卡片 - 显示电压、电流、功率
     EHoverCard {
         id: electricCard
+        z: -1   
         width: 120                              // 卡片宽度
         height: 250                             // 卡片高度
         anchors.bottom: parent.bottom           // 底部对齐
