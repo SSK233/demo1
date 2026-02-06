@@ -338,7 +338,6 @@ Page {
         }
         throttleBlocked = true
         selectedValue ^= bitMask
-        centralSlider.value = selectedValue
         buttonThrottleTimer.start()
     }
 
@@ -494,7 +493,6 @@ Page {
         anchors.horizontalCenterOffset: -140
         onClicked: {
             console.log("载入电流值:", centralSlider.value)
-            selectedValue = centralSlider.value
         }
     }
 
