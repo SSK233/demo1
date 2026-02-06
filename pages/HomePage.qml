@@ -44,8 +44,29 @@ Page {
      * @brief Modbus管理器
      * 负责Modbus RTU通信，读取电压、电流、功率数据
      */
+    property bool dataUpdatePending: false
+
+    Timer {
+        id: dataUpdateTimer
+        interval: 100
+        repeat: false
+        onTriggered: {
+            if (modbusManager.voltage > 0 || modbusManager.current > 0 || modbusManager.power > 0) {
+                waveformDataManager.addDataPoint(modbusManager.voltage, modbusManager.current, modbusManager.power)
+            }
+            window.dataUpdatePending = false
+        }
+    }
+
     ModbusManager {
         id: modbusManager
+
+        onVoltageChanged: {
+            if (!window.dataUpdatePending) {
+                window.dataUpdatePending = true
+                dataUpdateTimer.start()
+            }
+        }
 
         onErrorOccurred: {
             console.log("Modbus错误:", error)

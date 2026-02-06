@@ -37,6 +37,9 @@ ApplicationWindow {
     // 主题组件 - 提供应用程序的主题配置（如颜色、字体等）
     ETheme { id: theme }
 
+    // 波形数据管理器 - 全局共享，用于存储电压/电流/功率历史数据
+    WaveformDataManager { id: waveformDataManager }
+
     // 分割视图 - 将窗口分为多个可调整大小的区域
     SplitView {
         // 填充整个父容器（即ApplicationWindow）

@@ -122,8 +122,9 @@ Rectangle {
         id: titleColumn
         anchors.top: parent.top
         anchors.left: parent.left
-        anchors.margins: 40
-        spacing: 5
+        anchors.topMargin: 12
+        anchors.leftMargin: 16
+        spacing: 2
 
         Text {
             text: root.title
@@ -144,10 +145,11 @@ Rectangle {
         id: styleButton
         anchors.top: parent.top
         anchors.right: parent.right
-        anchors.margins: 40
-        width: 80
-        height: 32
-        radius: 16
+        anchors.topMargin: 12
+        anchors.rightMargin: 16
+        width: 60
+        height: 24
+        radius: 12
         color: root.backgroundVisible ? theme.secondaryColor : "transparent"
         border.color: theme.borderColor
         border.width: root.backgroundVisible ? 1 : 0
@@ -499,16 +501,30 @@ Rectangle {
 
     // === X轴标签 ===
     Row {
+        id: xAxisLabels
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.margins: root.chartPadding
         anchors.bottomMargin: legend.visible ? 75 : 15
 
+        property var allData: root.effectiveDataSeries.length > 0 ? root.effectiveDataSeries[0].data : []
+        property int dataCount: allData.length
+        property int displayCount: Math.min(10, dataCount)
+        property int step: dataCount > 10 ? Math.floor(dataCount / 10) : 1
+
         Repeater {
-            model: root.effectiveDataSeries.length > 0 ? root.effectiveDataSeries[0].data : []
+            model: {
+                var result = []
+                var data = xAxisLabels.allData
+                var step = xAxisLabels.step
+                for (var i = 0; i < data.length; i += step) {
+                    result.push(data[i])
+                }
+                return result
+            }
             delegate: Text {
-                width: root.chartWidth / (root.effectiveDataSeries.length > 0 ? root.effectiveDataSeries[0].data.length : 1)
+                width: root.chartWidth / Math.max(1, xAxisLabels.displayCount)
                 text: modelData.month
                 font.pixelSize: root.fontSize - 2
                 color: root.subtitleColor
